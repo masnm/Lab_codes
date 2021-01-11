@@ -33,10 +33,6 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	ll n = 1000000;
-	for ( ll i = 0 ; i < n ; i++ ) A[i] = rand();
-	qsort ( A, n, sizeof(*A), min );
-	for ( ll i = 0 ; i < n ; i++ ) pl(A[i]);
 }
 
 int main ()
