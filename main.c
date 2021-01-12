@@ -33,25 +33,6 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	ll n,m; sl(n); sl(m);
-	for ( ll i = 0 ; i < m ; i++ ) sl(A[i]);
-	ll dp[1000][1000] = { };
-	for ( ll i = 0 ; i < m ; i++ ) dp[0][i] = 1;
-	for ( ll i = 0 ; i < n+1 ; i++ ) {
-		for ( ll j = 0 ; j < m ; j++ ) {
-			for ( ll k = j ; k < m ; k++ ) {
-				if ( i + A[k] < n + 1 ) {
-					dp[i+A[k]][k] += dp[i][j];
-				}
-			}
-		}
-	}
-	for ( ll i = n ; i < n+1 ; i++ ) {
-		for ( ll j = 0 ; j < m ; j++ ) {
-			pl(dp[i][j]);
-		}
-		nln;
-	}
 }
 
 int main ()
@@ -59,7 +40,7 @@ int main ()
 	prepare_lookup_table();
 
 	ll t = 1;
-	//sl(t);
+	sl(t);
 	while ( t-- ) {
 		do_task();
 	}

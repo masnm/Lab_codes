@@ -1,6 +1,9 @@
 # Input files
 in*
 
+# Vim backup
+.main.c.swp
+
 # Prerequisites
 *.d
 
