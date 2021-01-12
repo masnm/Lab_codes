@@ -21,9 +21,20 @@ d:
 
 t:
 	gcc -std=c17 -Wall -o a.out main.c
+	./a.out < in1
+	./a.out < in2
+	./a.out < in3
+	rm a.out
+tm:
+	gcc -std=c17 -Wall -o a.out main.c
 	time ./a.out < in1
 	time ./a.out < in2
 	time ./a.out < in3
 	rm a.out
 stc:
 	cat in*
+git:
+	git status
+	git add .
+	git commit -S 
+	clear
