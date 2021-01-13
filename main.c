@@ -33,9 +33,11 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	ll n; sl(n);
-	long long int n; scanf("%lld",n);
-	hridoy code
+	 klfdjfdlkf sdkl
+		 jfdjfldksf
+		 fsdjflkdsf
+		 sfsdjfkldsf
+		 dsfdskjfk
 }
 
 int main ()
