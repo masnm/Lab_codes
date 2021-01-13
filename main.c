@@ -16,8 +16,8 @@ const long long int INF = LLONG_MAX;
 const long long int mod = 1000000007;
 
 #warning need array limit
-ll A[20000005];
-ll B[20000005];
+ll A[10000005];
+ll B[10000005];
 
 int min ( const void *a, const void *b )
 {
@@ -33,6 +33,9 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
+	ll n; sl(n);
+	long long int n; scanf("%lld",n);
+	hridoy code
 }
 
 int main ()
