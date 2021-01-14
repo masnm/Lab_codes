@@ -39,3 +39,7 @@ git:
 	git commit -S 
 	git push
 	clear
+bkp:
+	cp main.c main.c.backup
+ub:
+	mv main.c.backup main.c

@@ -33,11 +33,6 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	 klfdjfdlkf sdkl
-		 jfdjfldksf
-		 fsdjflkdsf
-		 sfsdjfkldsf
-		 dsfdskjfk
 }
 
 int main ()

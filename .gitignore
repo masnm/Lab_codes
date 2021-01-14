@@ -2,7 +2,10 @@
 in*
 
 # Vim backup
-.main.c.swp
+*.swp
+
+# packup of main.c
+main.c.backup
 
 # Prerequisites
 *.d
