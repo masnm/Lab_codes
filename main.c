@@ -5,44 +5,54 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define ll long long int
-
-#define sl(a) scanf("%lld",&a)
-#define pl(a) printf("%lld ",a)
+#define si(a) scanf("%d",&a)
+#define pis(a) printf("%d ",a)
+#define pi(a) printf("%d",a)
 #define nln printf("\n")
 
-const unsigned long long int UINF = ULLONG_MAX;
-const long long int INF = LLONG_MAX;
-const long long int mod = 1000000007;
-
-#warning need array limit
-ll A[10000005];
-ll B[10000005];
-
-int min ( const void *a, const void *b )
-{
-	ll l = *(ll*)a, r = *(ll*)b;
+int min ( const void *a, const void *b ) {
+	int l = *(int*)a, r = *(int*)b;
 	if ( l < r ) return -1;
 	if ( l > r ) return 1;
 	return 0;
 } // void qsort ( void *ptr, size_t count, size_t size, int (*comp)(const void *, const void *) );
 
-void prepare_lookup_table ()
-{
-}
+void chmin ( int *a, int b ) { *a > b ? *a = b : false; }
+void chmax ( int *a, int b ) { *a < b ? *a = b : false; }
 
-void do_task ()
-{
-}
+typedef struct {
+	int min;
+	int max;
+	int s;
+} st ;
 
 int main ()
 {
-	prepare_lookup_table();
-
-	ll t = 1;
-	sl(t);
+	int t,sum,l,r,ans; si(t);
+	char c[100005];
 	while ( t-- ) {
-		do_task();
+		int n, m; si(n); si(m);
+		scanf("%s",c);
+		while ( m-- ) {
+			si(l); si(r);
+			int low = 0;
+			int high = 0;
+			sum = 0;
+			for ( int i = 0 ; i < l-1 ; i++ ) {
+				if ( c[i] == '-' ) sum--;
+				else sum++;
+				chmin ( &low, sum );
+				chmax ( &high, sum );
+			}
+			for ( int i = r ; i < n ; i++ ) {
+				if ( c[i] == '-' ) sum--;
+				else sum++;
+				chmin ( &low, sum );
+				chmax ( &high, sum );
+			}
+			ans = abs(low) + high + 1;
+			pi(ans); nln;
+		}
 	}
 
 
