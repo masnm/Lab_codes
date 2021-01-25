@@ -56,3 +56,12 @@ git:
 	@git commit -S 
 	@git push
 	@clear
+
+i1:
+	@xclip -o > in1
+i2:
+	@xclip -o > in2
+i3:
+	@xclip -o > in3
+s:
+	@xclip -selection clipboard < main.c
