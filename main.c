@@ -17,28 +17,56 @@ int min ( const void *a, const void *b ) {
 	return 0;
 } // void qsort ( void *ptr, size_t count, size_t size, int (*comp)(const void *, const void *) );
 
-int find_fib_sum ( int n )
+#define max 10000
+bool A[max] = { };
+void prepare_table ( void )
 {
-	int sum = 0, first = 1, second = 1, next;
-	while ( first <= n ) {
-		printf ( "%d ", first );
-		sum += first;
-		next = first + second;
-		first = second;
-		second = next;
+	A[0] = A[1] = true;
+	for ( int i = 2 ; i < max ; i++ ) {
+		if ( !A[i] ) {
+			for ( int j = i*2 ; j <= sqrt(max) ; j += i ) {
+				A[j] = true;
+			}
+		}
 	}
-	return sum;
 }
+
+void print_primes ( int n )
+{
+	puts("The prime numbers are ");
+	for ( int i = 0 ; i < n ; i++ ) {
+		if ( !A[i] ) printf("%d ",i );
+	}
+}
+
+void print_n_primes ( int n )
+{
+	printf("The list of first %d prime numbers are :\n",n);
+	int count = 1, index = 0;
+	while ( count <= n ) {
+		if ( !A[index++] ) {
+			count++;
+			printf("%d ",index-1);
+		}
+	}
+}
+
 
 int main ()
 {
+	prepare_table ();
+
 	int input;
 	printf("Enter the number : ");
 	scanf("%d",&input);
 
-	int sum = find_fib_sum ( input );
+	print_primes ( input );
+	nln;
 
-	printf( "The sum is %d",sum );
+
+	print_n_primes ( input );
+	nln;
+
 
 
 	return 0;
