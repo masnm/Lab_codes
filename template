@@ -5,6 +5,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+#define chmax(a,b) if ( a < b ) a = b
+#define chmin(a,b) if ( a > b ) a = b
+
 #define si(a) scanf("%d",&a)
 #define pis(a) printf("%d ",a)
 #define pi(a) printf("%d",a)
