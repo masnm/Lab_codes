@@ -23,74 +23,39 @@ int min ( const void *a, const void *b ) {
 void initilize ( int* arr, int n )
 {
 	for ( int i = 0 ; i < n ; i++ ) {
-		arr[i] = rand() % 1000;
+		arr[i] = rand() % 101;
 	}
 }
 
-void devide ( int* arr, int n, int* odd, int* even, int* oc, int* ec )
+void summation_using_a_pointer ( int* arr, int n, int* sum )
 {
 	for ( int i = 0 ; i < n ; i++ ) {
-		if ( arr[i] % 2 == 0 ) {
-			even[*ec] = arr[i];
-			*ec = *ec + 1;
-		} else {
-			odd[*oc] = arr[i];
-			*oc = *oc + 1;
-		}
-	}
-}
-
-void swap ( int* a, int* b )
-{
-	int temp = *a ; *a = *b ; *b = temp;
-}
-
-void sort ( int* arr, int n )
-{
-	for ( int i = 0 ; i < n-1 ; i++ ) {
-		for ( int j = i+1 ; j < n ; j++ ) {
-			if ( arr[i] > arr[j] ) {
-				swap ( arr+i, arr+j );
-			}
-		}
+		*sum += arr[i];
 	}
 }
 
 int main ()
 {
 	int n;
-	printf("Enter the number of element you want : ");
+	printf("Enter a positive number : ");
 	si(n);
 
-	int* arr = (int*) malloc(2*n*sizeof(int));
+	int* arr = (int*) malloc(n*sizeof(int));
 
-	initilize ( arr, n*2 );
+	initilize ( arr, n );
 
-	int* odd = (int*) malloc(2*n*sizeof(int));
-	int* even = (int*) malloc(2*n*sizeof(int));
-	int odd_count = 0, even_count = 0;
+	int sum = 0;
+	summation_using_a_pointer ( arr, n, &sum );
 
-	devide ( arr, n*2, odd, even, &odd_count, &even_count );
-
-	sort ( odd, odd_count );
-	sort ( even, even_count );
-
-	puts("The odd elements after swaping is ");
-	for ( int i = 0 ; i < odd_count ; i++ ) {
-		pis(odd[i]);
+	puts("The elements are: ");
+	for ( int i = 0 ; i < n ; i++ ) {
+		pis(arr[i]);
 	}
 	nln;
 
-	puts("The even elements after swaping is ");
-	for ( int i = 0 ; i < even_count ; i++ ) {
-		pis(even[i]);
-	}
-	nln;
-
+	printf("The summation of the element in the array is: %d\n",sum);
 
 	free ( arr );
-	free ( odd );
-	free ( even );
 
 
 	return 0;
