@@ -20,42 +20,8 @@ int min ( const void *a, const void *b ) {
 	return 0;
 } // void qsort ( void *ptr, size_t count, size_t size, int (*comp)(const void *, const void *) );
 
-void initilize ( int* arr, int n )
-{
-	for ( int i = 0 ; i < n ; i++ ) {
-		arr[i] = rand() % 101;
-	}
-}
-
-void summation_using_a_pointer ( int* arr, int n, int* sum )
-{
-	for ( int i = 0 ; i < n ; i++ ) {
-		*sum += arr[i];
-	}
-}
-
 int main ()
 {
-	int n;
-	printf("Enter a positive number : ");
-	si(n);
-
-	int* arr = (int*) malloc(n*sizeof(int));
-
-	initilize ( arr, n );
-
-	int sum = 0;
-	summation_using_a_pointer ( arr, n, &sum );
-
-	puts("The elements are: ");
-	for ( int i = 0 ; i < n ; i++ ) {
-		pis(arr[i]);
-	}
-	nln;
-
-	printf("The summation of the element in the array is: %d\n",sum);
-
-	free ( arr );
 
 
 	return 0;
