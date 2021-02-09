@@ -5,23 +5,34 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define chmax(a,b) if ( a < b ) a = b
-#define chmin(a,b) if ( a > b ) a = b
+#define ll long long
 
-#define si(a) scanf("%d",&a)
-#define pis(a) printf("%d ",a)
-#define pi(a) printf("%d",a)
+#define si(a) scanf("%lld",&a)
+#define pi(a) printf("%lld",a)
+#define pis(a) printf("%lld",a)
 #define nln printf("\n")
 
-int min ( const void *a, const void *b ) {
-	int l = *(int*)a, r = *(int*)b;
-	if ( l < r ) return -1;
-	if ( l > r ) return 1;
-	return 0;
-} // void qsort ( void *ptr, size_t count, size_t size, int (*comp)(const void *, const void *) );
+void do_task ()
+{
+	ll n=0;
+	si(n);
+	ll t=0;
+	while ( n-- ) {
+		si(t);
+		if ( t == 1 ) {
+			puts("HARD");
+			return;
+		}
+	}
+	puts("EASY");
+}
 
 int main ()
 {
+	ll t = 1;
+	while ( t-- ) {
+		do_task();
+	}
 
 
 	return 0;

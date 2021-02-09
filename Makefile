@@ -64,4 +64,6 @@ i2:
 i3:
 	@xclip -o > in3
 s:
-	@xclip -selection clipboard < main.c
+	clip.exe < main.c
+	
+#@xclip -selection clipboard < main.c
