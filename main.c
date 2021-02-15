@@ -13,52 +13,58 @@
 #define pis(a) printf("%d ",a)
 #define nln printf("\n")
 
-bool is_valid ( int a, int b )
-{
-	if ( a < 1 || b < 1 ) {
-		printf("Input is invalid.\ninput must contain positive numbers only.\nTry again : ");
-		return false;
-	}
-	return true;
-}
-
 int main ()
 {
-	int r,c;
-	printf("Enter the number of rows : "); si(r);
-	printf("Enter the number of columns : "); si(c);
-	while ( !is_valid ( r, c ) ) {
-		printf("Enter the number of rows : "); si(r);
-		printf("Enter the number of columns : "); si(c);
+	int ra=0, ca=0, rb=0, cb=0;
+	again:
+	printf("Enter the number of rows for first matrix : "); si(ra);
+	printf("Enter the number of columns for first matrix : "); si(ca);
+	printf("Enter the number of rows for second matrix : "); si(rb);
+	printf("Enter the number of columns for second matrix : "); si(cb);
+	if ( ra < 1 || ca < 1 || rb < 1 || cb < 1 ) {
+		printf("invalid input. try again.\n");
+		goto again;
 	}
-	
-	// declearin the array
-	int arr[r][c];
-	
-	// initializing the array with random number in range 0-6
-	for ( int i = 0 ; i < r ; i++ ) {
-		for ( int j = 0 ; j < c ; j++ ) {
-			arr[i][j] = rand() % 6;
+
+	if ( ca != rb ) {
+		printf("Multiplication is not possible.");
+		return 0;
+	}
+
+	int ma[ra][ca], mb[rb][cb], ans[ra][cb];
+
+	for ( int i = 0 ; i < ra ; i++ ) {
+		for ( int j = 0 ; j < ca ; j++ ) {
+			ma[i][j] = rand() % 6;
 		}
 	}
 
-	// printing the array
-	for ( int i = 0 ; i < r ; i++ ) {
-		for ( int j = 0 ; j < c ; j++ ) {
-			pis(arr[i][j]);
+	for ( int i = 0 ; i < rb ; i++ ) {
+		for ( int j = 0 ; j < cb ; j++ ) {
+			mb[i][j] = rand() % 6;
+		}
+	}
+
+	for ( int i = 0 ; i < ra ; i++ ) {
+		for ( int j = 0 ; j < cb ; j++ ) {
+			ans[i][j] = 0;
+		}
+	}
+
+	for ( int i = 0 ; i < ra ; i++ ) {
+		for ( int j = 0 ; j < cb ; j++ ) {
+			for ( int k = 0 ; k < ca ; k++ ) {
+				ans[i][j] += ma[i][k] + mb[k][i];
+			}
+		}
+	}
+
+	for ( int i = 0 ; i < ra ; i++ ) {
+		for ( int j = 0 ; j < cb ; j++ ) {
+			pis(ans[i][j]);
 		}
 		nln;
 	}
-
-	int* ptr = &arr[0][0];
-	int n = r * c, ans = 0;
-	for ( int i = 0 ; i < n ; i++ ) {
-		ans += *ptr;
-		ptr++;
-	}
-
-	printf("The sum of the elements are: %d", ans );
-	nln;
 
 
 	return 0;
