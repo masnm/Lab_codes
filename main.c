@@ -18,11 +18,21 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	char s[10000]; scanf("%s",s);
-	if ( s[0] > 'Z' ) {
-		s[0] -= 'a'-'A';
+	char s[105]; scanf("%s",s);
+	int len = strlen(s);
+	for ( int i = 0 ; i < len ; i++ ) {
+		int count = 0, j=i+1;
+		while ( j < len && s[j] == s[i] ) {
+			j++;
+			count++;
+		}
+		if ( count >= 6 ) {
+			printf("YES");
+			return;
+		}
 	}
-	printf("%s",s);
+	printf("NO");
+	nln;
 }
 
 int main ()
