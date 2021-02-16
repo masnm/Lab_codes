@@ -18,18 +18,11 @@ void prepare_lookup_table ()
 
 void do_task ()
 {
-	ll n; si(n);
-	char s[50];
-	ll ans = 0;
-	while ( n-- ) {
-		scanf("%s",s);
-		if ( s[0] == 'T' ) ans += 4;
-		else if ( s[0] == 'C' ) ans += 6;
-		else if ( s[0] == 'O' ) ans += 8;
-		else if ( s[0] == 'D' ) ans += 12;
-		else ans += 20;
+	char s[10000]; scanf("%s",s);
+	if ( s[0] > 'Z' ) {
+		s[0] -= 'a'-'A';
 	}
-	pis(ans);
+	printf("%s",s);
 }
 
 int main ()
