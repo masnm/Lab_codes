@@ -20,18 +20,12 @@ void do_task ()
 {
 	char s[105]; scanf("%s",s);
 	int len = strlen(s);
-	for ( int i = 0 ; i < len ; i++ ) {
-		int count = 0, j=i+1;
-		while ( j < len && s[j] == s[i] ) {
-			j++;
-			count++;
-		}
-		if ( count >= 6 ) {
-			printf("YES");
-			return;
-		}
+	if ( len > 10 ) {
+		printf("%c%d%c",s[0],len-2,s[len-1]);
+		nln;
+		return;
 	}
-	printf("NO");
+	printf("%s",s);
 	nln;
 }
 
@@ -40,7 +34,7 @@ int main ()
 	prepare_lookup_table();
 
 	ll t = 1;
-//	si(t);
+	si(t);
 	while ( t-- ) {
 		do_task();
 	}
