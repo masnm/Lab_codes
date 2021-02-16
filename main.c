@@ -31,30 +31,31 @@ int main ()
 		return 0;
 	}
 
+	nln;
 	int ma[ra][ca], mb[rb][cb], ans[ra][cb];
 
 	for ( int i = 0 ; i < ra ; i++ ) {
 		for ( int j = 0 ; j < ca ; j++ ) {
 			ma[i][j] = rand() % 6;
+			//printf("%d ",ma[i][j]);
 		}
+		//nln;
 	}
 
 	for ( int i = 0 ; i < rb ; i++ ) {
 		for ( int j = 0 ; j < cb ; j++ ) {
 			mb[i][j] = rand() % 6;
+			//pis(mb[i][j]);
 		}
+		//nln;
 	}
 
 	for ( int i = 0 ; i < ra ; i++ ) {
 		for ( int j = 0 ; j < cb ; j++ ) {
 			ans[i][j] = 0;
-		}
-	}
-
-	for ( int i = 0 ; i < ra ; i++ ) {
-		for ( int j = 0 ; j < cb ; j++ ) {
 			for ( int k = 0 ; k < ca ; k++ ) {
-				ans[i][j] += ma[i][k] + mb[k][i];
+				//pis(ans[i][j]); pis(ma[i][k]); pis(mb[k][i]); nln;
+				ans[i][j] += (ma[i][k] * mb[k][j]);
 			}
 		}
 	}
