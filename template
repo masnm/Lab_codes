@@ -9,8 +9,12 @@
 
 #define si(a) scanf("%lld",&a)
 #define pi(a) printf("%lld",a)
-#define pis(a) printf("%lld",a)
+#define pis(a) printf("%lld ",a)
 #define nln printf("\n")
+
+void prepare_lookup_table ()
+{
+}
 
 void do_task ()
 {
@@ -18,6 +22,8 @@ void do_task ()
 
 int main ()
 {
+	prepare_lookup_table();
+
 	ll t = 1;
 	si(t);
 	while ( t-- ) {

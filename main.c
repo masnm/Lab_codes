@@ -6,65 +6,40 @@
 #include <stdbool.h>
 
 #define ll long long
-#define ld long double
 
-#define si(a) scanf("%d",&a)
-#define pi(a) printf("%d",a)
-#define pis(a) printf("%d ",a)
+#define si(a) scanf("%lld",&a)
+#define pi(a) printf("%lld",a)
+#define pis(a) printf("%lld ",a)
 #define nln printf("\n")
+
+void prepare_lookup_table ()
+{
+}
+
+void do_task ()
+{
+	ll n; si(n);
+	char s[50];
+	ll ans = 0;
+	while ( n-- ) {
+		scanf("%s",s);
+		if ( s[0] == 'T' ) ans += 4;
+		else if ( s[0] == 'C' ) ans += 6;
+		else if ( s[0] == 'O' ) ans += 8;
+		else if ( s[0] == 'D' ) ans += 12;
+		else ans += 20;
+	}
+	pis(ans);
+}
 
 int main ()
 {
-	int ra=0, ca=0, rb=0, cb=0;
-	again:
-	printf("Enter the number of rows for first matrix : "); si(ra);
-	printf("Enter the number of columns for first matrix : "); si(ca);
-	printf("Enter the number of rows for second matrix : "); si(rb);
-	printf("Enter the number of columns for second matrix : "); si(cb);
-	if ( ra < 1 || ca < 1 || rb < 1 || cb < 1 ) {
-		printf("invalid input. try again.\n");
-		goto again;
-	}
+	prepare_lookup_table();
 
-	if ( ca != rb ) {
-		printf("Multiplication is not possible.");
-		return 0;
-	}
-
-	nln;
-	int ma[ra][ca], mb[rb][cb], ans[ra][cb];
-
-	for ( int i = 0 ; i < ra ; i++ ) {
-		for ( int j = 0 ; j < ca ; j++ ) {
-			ma[i][j] = rand() % 6;
-			//printf("%d ",ma[i][j]);
-		}
-		//nln;
-	}
-
-	for ( int i = 0 ; i < rb ; i++ ) {
-		for ( int j = 0 ; j < cb ; j++ ) {
-			mb[i][j] = rand() % 6;
-			//pis(mb[i][j]);
-		}
-		//nln;
-	}
-
-	for ( int i = 0 ; i < ra ; i++ ) {
-		for ( int j = 0 ; j < cb ; j++ ) {
-			ans[i][j] = 0;
-			for ( int k = 0 ; k < ca ; k++ ) {
-				//pis(ans[i][j]); pis(ma[i][k]); pis(mb[k][i]); nln;
-				ans[i][j] += (ma[i][k] * mb[k][j]);
-			}
-		}
-	}
-
-	for ( int i = 0 ; i < ra ; i++ ) {
-		for ( int j = 0 ; j < cb ; j++ ) {
-			pis(ans[i][j]);
-		}
-		nln;
+	ll t = 1;
+//	si(t);
+	while ( t-- ) {
+		do_task();
 	}
 
 
