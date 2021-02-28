@@ -16,26 +16,21 @@ void prepare_lookup_table ()
 {
 }
 
-void catenation ( char a[], char b[], int l )
+ll gcd (int n, int m)
 {
-	if ( l == strlen(a) ) {
-		return;
-	}
-	int len = strlen(b);
-	b[len++] = a[l];
-	b[len] = '\0';
-	catenation ( a, b, ++l );
+	if (m == 0)
+		return n;
+	else
+		return gcd (m, n % m);
 }
 
 void do_task ()
 {
-	char one[1001], two[2005];
-	printf("Enter string one : ");
-	scanf("%s",one);
-	printf("Enter string two : ");
-	scanf("%s",two);
-	catenation ( one, two, 0 );
-	printf("Strings after catenation is : %s",two);
+	printf("Enter two number : ");
+	ll n, m; si(n); si(m);
+	ll ans = gcd ( n, m );
+	printf("GCD of the numbers are : ");
+	pis(ans);
 	nln;
 }
 
