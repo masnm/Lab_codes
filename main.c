@@ -12,21 +12,27 @@
 #define pis(a) printf("%lld ",a)
 #define nln printf("\n")
 
+#define chmax(a,b) if ( a < b ) a = b
+
 void prepare_lookup_table ()
 {
 }
 
 void do_task ()
 {
-	char s[105]; scanf("%s",s);
-	int len = strlen(s);
-	if ( len > 10 ) {
-		printf("%c%d%c",s[0],len-2,s[len-1]);
-		nln;
-		return;
+	ll mx = INT_MIN, count = 1;
+	char c, pv = '.';
+	while ( scanf("%c",&c) != EOF ) {
+		if ( c != pv ) {
+			pv = c;
+			chmax ( mx, count );
+			count = 1;
+		} else {
+			count++;
+		}
 	}
-	printf("%s",s);
-	nln;
+	if ( mx > 6 ) puts("YES");
+	else puts("NO");
 }
 
 int main ()
@@ -34,7 +40,7 @@ int main ()
 	prepare_lookup_table();
 
 	ll t = 1;
-	si(t);
+//	si(t);
 	while ( t-- ) {
 		do_task();
 	}

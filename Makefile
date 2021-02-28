@@ -57,13 +57,11 @@ git:
 	@git push
 	@clear
 
-i1:
+1:
 	@xclip -o > in1
-i2:
+2:
 	@xclip -o > in2
-i3:
+3:
 	@xclip -o > in3
 s:
-	clip.exe < main.c
-	
-#@xclip -selection clipboard < main.c
+	@xclip -selection clipboard < main.c
