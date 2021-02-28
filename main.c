@@ -12,45 +12,30 @@
 #define pis(a) printf("%lld ",a)
 #define nln printf("\n")
 
-#define mx 10000005
-bool A[mx] = { };
 void prepare_lookup_table ()
 {
-	A[0] = A[1] = true;
-	int sq = (int)sqrt(mx); sq++;
-	for ( int i = 2 ; i < sq ; i++ ) {
-		if ( !A[i] ) {
-		       for ( int j = i*i ; j < mx ; j+=i ) {
-			       A[j] = true;
-		       }
-		}
-	}
 }
 
-void print_n_primes ( ll n )
+void catenation ( char a[], char b[], int l )
 {
-	ll i = 1;
-	while ( n-- ) {
-		while ( A[i] ) {
-			i++;
-		}
-		pis(i); i++;
+	if ( l == strlen(a) ) {
+		return;
 	}
+	int len = strlen(b);
+	b[len++] = a[l];
+	b[len] = '\0';
+	catenation ( a, b, ++l );
 }
 
 void do_task ()
 {
-	printf("Enter a positive integer : ");
-	ll n; si(n);
-	if ( n < 1 ) {
-		puts("Invalid input.");
-		return;
-	}
-	if ( n > 664579 ) {
-		puts("Input is too high.");
-		return;
-	}
-	print_n_primes ( n );
+	char one[1001], two[2005];
+	printf("Enter string one : ");
+	scanf("%s",one);
+	printf("Enter string two : ");
+	scanf("%s",two);
+	catenation ( one, two, 0 );
+	printf("Strings after catenation is : %s",two);
 	nln;
 }
 
