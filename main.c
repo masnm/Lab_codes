@@ -16,22 +16,24 @@ void prepare_lookup_table ()
 {
 }
 
-ll gcd (int n, int m)
+#include <stdarg.h>
+void print_ints ( int count, ... )
 {
-	if (m == 0)
-		return n;
-	else
-		return gcd (m, n % m);
+	va_list args;
+
+	va_start ( args, count );
+
+	for ( int i = 0 ; i < count ; ++i ) {
+		int value = va_arg ( args, int );
+		printf("%d : %d\n", i, value );
+	}
+
+	va_end ( args );
 }
 
 void do_task ()
 {
-	printf("Enter two number : ");
-	ll n, m; si(n); si(m);
-	ll ans = gcd ( n, m );
-	printf("GCD of the numbers are : ");
-	pis(ans);
-	nln;
+	print_ints ( 5, 1, 2, 3, 4, 5 );
 }
 
 int main ()
