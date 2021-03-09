@@ -12,20 +12,32 @@
 #define pis(a) printf("%d ",a)
 #define nln printf("\n")
 
-long double f ( float a )
+bool arr[1005] = { };
+void prepare_lookup_table ()
 {
-	return (a*a*a*a) + (a*a) + 1;
-	// return pow(a,4) + pow(a,2) + 1;
+	arr[0] = arr[1] = true;
+	for ( int i = 2 ; i * i < 1005 ; ++i ) {
+		for ( int j = i*i ; j < 1005 ; j+=i ) {
+			arr[j] = true;
+		}
+	}
+}
+
+void do_task ()
+{
+	printf("All coprime in range 100-1000 are : ");
+	for ( int i = 100 ; i < 1000-2 ; ++i ) {
+		if ( !arr[i] && !arr[i+2] ) {
+			pis(i); pis(i+2); nln;
+		}
+	}
 }
 
 int main ()
 {
-	float start = 0.01, end = 0.5;
-	while ( start <= end ) {
-		printf("For x = %.2f the value of f(x) = %Lf\n", start, f(start));
-		start += 0.01;
-	}
+	prepare_lookup_table();
 
+	do_task();
 
 
 	return 0;
