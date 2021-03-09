@@ -7,28 +7,38 @@
 
 #define ll long long
 
-#define si(a) scanf("%lld",&a)
-#define pi(a) printf("%lld",a)
-#define pis(a) printf("%lld ",a)
+#define si(a) scanf("%d",&a)
+#define pi(a) printf("%d",a)
+#define pis(a) printf("%d ",a)
 #define nln printf("\n")
-
-void show_sum_mul ( double a, double b )
-{
-	printf("The summation is: ");
-	printf("%lf\n",a+b);
-	printf("The Multiplication is: ");
-	printf("%lf\n",a*b);
-}
 
 int main ()
 {
+	printf("Enter number n : ");
+	int n; si(n);
 
-	double a,b;
-	printf("Enter two numbers: ");
-	scanf("%lf %lf",&a,&b);
+	int div[51], dc=0;
+	for ( int i = 2 ; i <= n ; ++i ) {
+		if ( n%i == 0 ) div[dc++] = i;
+	}
 
-	show_sum_mul ( a, b );
+	bool barr[201] = { };
+	barr[0] = true;
+	for ( int i = 1 ; i < 201 ; ++i ) {
+		for ( int j = 0 ; j < dc ; ++j ) {
+			if ( i%div[j] == 0 ) {
+				barr[i] = true;
+				break;
+			}
+		}
+	}
 
+	for ( int i = 0 ; i < 201 ; ++i ) {
+		if ( !barr[i] ) {
+			pis(i);
+		}
+	}
+	nln;
 
 	return 0;
 }
