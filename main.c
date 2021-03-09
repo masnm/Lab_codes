@@ -12,31 +12,55 @@
 #define pis(a) printf("%d ",a)
 #define nln printf("\n")
 
-int ret_des ( char a, char b )
+void initialize ( int* a, int len, int ran )
 {
-	if ( a >= 'a' ) {
-		a -= 'a'-'A';
+	for ( int i = 0 ; i < len ; ++i ) {
+		a[i] = rand() % ran;
+		pis(a[i]);
 	}
-	if ( b >= 'a' ) {
-		b -= 'a'-'A';
-	}
-	return a>b ? (int)(a-b) : (int)(b-a);
+	nln;
+}
+
+int max ( int a, int b )
+{
+	return a>b?a:b;
 }
 
 int main ()
 {
-	// finding absolute distances....
-	char n;
-	char str[1001];
-	printf("Enter a character : ");
-	scanf("%c",&n);
-	printf("Enter string : ");
-	scanf("%s",str);
+	int x,y;
+	printf("Enter number X : "); si(x);
+	printf("Enter number Y : "); si(y);
 
-	printf("Distance : ");
-	int len = strlen(str);
-	for ( int i = 0 ; i < len ; ++i ) {
-		pis(ret_des(n,str[i]));
+	int a[x], b[y];
+
+	printf("Arr1 : ");
+	initialize ( a, x, 10);
+	printf("Arr2 : ");
+	initialize ( b, y, 10);
+
+	int *pa = a+x-1, *pb = b+y-1;
+	int an_mx = max(x,y);
+	int ans[an_mx];
+	if ( x > y ) {
+		for ( int i = 0 ; i < x ; ++i ) {
+			ans[i] = *pa;
+			--pa;
+			ans[i] += pb<b?0:*pb;
+			--pb;
+		}
+	} else {
+		for ( int i = 0 ; i < y ; ++i ) {
+			ans[i] = *pb;
+			--pb;
+			ans[i] += pa<a?0:*pa;
+			--pa;
+		}
+	}
+
+	printf("Output : ");
+	for ( int i = an_mx-1 ; i > -1 ; --i ) {
+		pis(ans[i]);
 	}
 
 
