@@ -12,39 +12,22 @@
 #define pis(a) printf("%lld ",a)
 #define nln printf("\n")
 
-void prepare_lookup_table ()
+void show_sum_mul ( double a, double b )
 {
-}
-
-#include <stdarg.h>
-void print_ints ( int count, ... )
-{
-	va_list args;
-
-	va_start ( args, count );
-
-	for ( int i = 0 ; i < count ; ++i ) {
-		int value = va_arg ( args, int );
-		printf("%d : %d\n", i, value );
-	}
-
-	va_end ( args );
-}
-
-void do_task ()
-{
-	print_ints ( 5, 1, 2, 3, 4, 5 );
+	printf("The summation is: ");
+	printf("%lf\n",a+b);
+	printf("The Multiplication is: ");
+	printf("%lf\n",a*b);
 }
 
 int main ()
 {
-	prepare_lookup_table();
 
-	ll t = 1;
-//	si(t);
-	while ( t-- ) {
-		do_task();
-	}
+	double a,b;
+	printf("Enter two numbers: ");
+	scanf("%lf %lf",&a,&b);
+
+	show_sum_mul ( a, b );
 
 
 	return 0;
