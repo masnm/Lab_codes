@@ -12,33 +12,34 @@
 #define pis(a) printf("%d ",a)
 #define nln printf("\n")
 
+int ret_des ( char a, char b )
+{
+	if ( a >= 'a' ) {
+		a -= 'a'-'A';
+	}
+	if ( b >= 'a' ) {
+		b -= 'a'-'A';
+	}
+	return a>b ? (int)(a-b) : (int)(b-a);
+}
+
 int main ()
 {
-	printf("Enter number n : ");
-	int n; si(n);
+	// finding absolute distances....
+	char n;
+	char str[1001];
+	printf("Enter a character : ");
+	scanf("%c",&n);
+	printf("Enter string : ");
+	scanf("%s",str);
 
-	int div[51], dc=0;
-	for ( int i = 2 ; i <= n ; ++i ) {
-		if ( n%i == 0 ) div[dc++] = i;
+	printf("Distance : ");
+	int len = strlen(str);
+	for ( int i = 0 ; i < len ; ++i ) {
+		pis(ret_des(n,str[i]));
 	}
 
-	bool barr[201] = { };
-	barr[0] = true;
-	for ( int i = 1 ; i < 201 ; ++i ) {
-		for ( int j = 0 ; j < dc ; ++j ) {
-			if ( i%div[j] == 0 ) {
-				barr[i] = true;
-				break;
-			}
-		}
-	}
 
-	for ( int i = 0 ; i < 201 ; ++i ) {
-		if ( !barr[i] ) {
-			pis(i);
-		}
-	}
-	nln;
 
 	return 0;
 }
